@@ -4,8 +4,8 @@ let closeButton = document.querySelector('.popup__close');
 let title = document.querySelector('.profile__title');
 let subTitle = document.querySelector('.profile__subtitle');
 let form = document.querySelector('.popup__form');
-let nameField = document.querySelector('.popup__input_type_name');
-let titleField = document.querySelector('.popup__input_type_title');
+let nameField = document.querySelector('.popup__field_type_name');
+let titleField = document.querySelector('.popup__field_type_title');
 
 function showPopup() {
     popup.classList.add('popup_opened');
