@@ -1,0 +1,9 @@
+.element__info {
+    border: blue solid 1px;
+    width: 246px;
+    height: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px auto 31px;
+}
