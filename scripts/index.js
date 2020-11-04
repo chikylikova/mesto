@@ -9,6 +9,8 @@ let titleField = document.querySelector('.popup__field_type_title');
 
 function showPopup() {
     popup.classList.add('popup_opened');
+    nameField.value = title.textContent;
+    titleField.value = subTitle.textContent;
 }
 
 function closePopup() {
