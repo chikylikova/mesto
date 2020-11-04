@@ -3,7 +3,6 @@
     background: #000;
     border-radius: 2px;
     color: #fff;
-    font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -13,4 +12,11 @@
 
 .popup__submit:hover {
     opacity: 0.8;
+}
+
+@media screen and (max-width:767px) {
+    .popup__submit {
+        font-size: 14px;
+        line-height: 17px;
+    }
 }

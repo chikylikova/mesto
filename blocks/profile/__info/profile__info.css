@@ -1,7 +1,13 @@
 .profile__info {
-    border: blue solid 1px;
     max-width: 336px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+@media screen and (max-width:767px) {
+    .profile__info {
+        width: 100%;
+        justify-content: center;
+    }
 }

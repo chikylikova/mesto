@@ -7,3 +7,11 @@
     margin: 0;
     padding: 0;
 }
+
+@media screen and (max-width:400px) {
+    .element {
+        width: 100%;
+        grid-template-rows: repeat(2, 361px);
+        gap: 20px;
+    }
+}

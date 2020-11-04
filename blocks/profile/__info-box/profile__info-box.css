@@ -1,7 +1,14 @@
 .profile__info-box {
-    border: blue solid 1px;
-    width: 100%;
+    max-width: 336px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+}
+
+@media screen and (max-width:767px) {
+    .profile__info-box {
+        width: 100%;
+        display: block;
+        padding-bottom: 36px;
+    }
 }

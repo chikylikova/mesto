@@ -1,11 +1,9 @@
 .popup__field {
     min-height: 27px;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     border-top: none;
     border-left: none;
     border-right: none;
-    opacity: 0.2;
-    font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -17,4 +15,10 @@
 
 .popup__field:last-of-type {
     margin-bottom: 48px;
+}
+
+@media screen and (max-width:767px) {
+    .popup__field:last-of-type {
+        margin-bottom: 45px;
+    }
 }
