@@ -12,14 +12,11 @@ function closePopup() {
     popup.classList.remove('popup_opened');
 }
 
-editButton.addEventListener('click', showPopup);
-closeButton.addEventListener('click', closePopup);
-
 function submitForm(event) {
     event.preventDefault();
     title.textContent = nameField.value;
     subTitle.textContent = titleField.value;
-    submitClose.addEventListener('click', closePopup);
+    closePopup();
 }
 
 form.addEventListener('submit', submitForm);
@@ -29,3 +26,6 @@ function showPopup() {
     nameField.value = title.textContent;
     titleField.value = subTitle.textContent;
 }
+
+editButton.addEventListener('click', showPopup);
+closeButton.addEventListener('click', closePopup);
