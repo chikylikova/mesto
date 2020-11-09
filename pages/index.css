@@ -17,10 +17,11 @@
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__card/element__card.css);
+@import url(../blocks/element/__button-delete/element__button-delete.css);
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__info/element__info.css);
 @import url(../blocks/element/__title/elemet__title.css);
-@import url(../blocks/element/__button/element__button.css);
+@import url(../blocks/element/__button-like/element__button-like.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__content/popup__content.css);

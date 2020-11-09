@@ -6,6 +6,7 @@ let subTitle = document.querySelector('.profile__info-work');
 let form = document.querySelector('.popup__form');
 let nameField = document.querySelector('.popup__field_type_name');
 let titleField = document.querySelector('.popup__field_type_title');
+const addButton = document.querySelector('.profile__add-button');
 
 function showPopup() {
     popup.classList.add('popup_opened');
@@ -17,6 +18,7 @@ function closePopup() {
 
 editButton.addEventListener('click', showPopup);
 closeButton.addEventListener('click', closePopup);
+addButton.addEventListener('click', showPopup);
 
 function submitForm(event) {
     event.preventDefault();
