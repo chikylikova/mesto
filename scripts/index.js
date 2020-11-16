@@ -42,6 +42,8 @@ const form = document.querySelector('.popup__form');
 const nameField = document.querySelector('.popup__field_type_name');
 const titleField = document.querySelector('.popup__field_type_title');
 const placeField = document.querySelector('.popup__field_type_place');
+const placeNameField = document.querySelector('.popup__field_place_name');
+
 
 const popupImage = document.querySelector('.popup_type_image');
 
@@ -74,22 +76,30 @@ addButton.addEventListener('click', () => showPopup(popupAddCards));
 closeAddButton.addEventListener('click', () => closePopup(popupAddCards));
 
 
-/*const addCards = document.querySelector('.element');
+const addCards = document.querySelector('.element');
 const cardTemplate = document.querySelector('#template-card').content.querySelector('.element__card');
 
-const createCard = (card) => {
+function createCard(card) {
     const cardElement = cardTemplate.cloneNode(true);
     const photo = cardElement.querySelector('.element__image');
     const title = cardElement.querySelector('.element__title');
 
+    photo.src = card.link;
+    photo.alt = card.name;
     title.textContent = card.name;
-    photo.style.backgroundImage = `url{$(card.link)}`;
 
-    return createCard;
+    addCards.prepend(cardElement);
 }
 
-const renderCreateCard = (card, element) => {
-    element.prepend(createCard(card))
-};
+initialCards.forEach(createCard);
 
-initialCards.forEach( card => renderCreateCard(card, addCards));*/
+const addCard = document.querySelector('.popup__form_card');
+
+addCard.addEventListener('submit', event => {
+    event.preventDefault();
+    const cardTitle = addCard.querySelector('.popup__field_place_name').value;
+
+    createCard(cardTitle);
+    closePopup(popupAddCards);
+
+})
