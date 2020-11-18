@@ -62,7 +62,7 @@ function submitForm(event) {
 } 
 
 form.addEventListener('submit', submitForm); 
- 
+
 function showPopup(popup) { 
     popup.classList.add('popup_opened'); 
     nameField.value = title.textContent; 
@@ -88,6 +88,14 @@ function createCard(card) {
     photo.alt = card.name;
     title.textContent = card.name;
 
+    cardElement.querySelector('.element__button-delete').addEventListener('click', event => {
+        const element = event.target.closest('.element__card');
+
+        if(element) {
+            element.remove();
+        }
+    });
+
     addCards.prepend(cardElement);
 }
 
@@ -98,8 +106,13 @@ const addCard = document.querySelector('.popup__form_card');
 addCard.addEventListener('submit', event => {
     event.preventDefault();
     const cardTitle = addCard.querySelector('.popup__field_place_name').value;
+    const cardImage = addCard.querySelector('.popup__field_type_place').value;
 
-    createCard(cardTitle);
+    createCard({
+        name: cardTitle,
+        link: cardImage
+    });
     closePopup(popupAddCards);
 
 })
+

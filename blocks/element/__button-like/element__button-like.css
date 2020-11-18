@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     cursor: pointer;
+    border: none;
+    background: none;
 }
 
 .element__button-like:hover {
