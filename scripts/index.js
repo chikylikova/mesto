@@ -96,6 +96,14 @@ function createCard(card) {
         }
     });
 
+    cardElement.querySelector('.element__button-like').addEventListener('click', event => {
+        event.target.classList.toggle('element__button-like_active');
+    });
+
+    cardElement.querySelector('.element__image').addEventListener('click', event => {
+        showPopup(popupImage);
+    })
+
     addCards.prepend(cardElement);
 }
 
@@ -115,4 +123,6 @@ addCard.addEventListener('submit', event => {
     closePopup(popupAddCards);
 
 })
+
+
 
