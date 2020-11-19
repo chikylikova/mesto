@@ -27,50 +27,18 @@
       </section>
       <section class="elements">
           <ul class="element">
-            <li class="element__card"><img class="element__image" src="./images/kirill-pershin-1088404-unsplash-karachaevsk.jpg" alt="Карачаево">
-              <div class="element__info">
-                <h2 class="element__title">Карачаевск</h2>
-                <button type="button" class="element__button"><img src="./images/element-vector.svg" alt="Лайк">
-                </button>
-              </div>
-            </li>
-            <li class="element__card"><img class="element__image" src="./images/kirill-pershin-1404681-unsplash-elbrus.jpg" alt="Гора Эльбрус">
-              <div class="element__info">
-                <h2 class="element__title">Гора Эльбрус</h2>
-                <button type="button" class="element__button"><img src="./images/element-vector.svg" alt="Лайк">
-                </button>
-              </div>
-            </li>
-            <li class="element__card"><img class="element__image" src="./images/kirill-pershin-1556355-unsplash-dombai.jpg" alt="Домбай">
-              <div class="element__info">
-                <h2 class="element__title">Домбай</h2>
-                <button type="button" class="element__button"><img src="./images/element-vector.svg" alt="Лайк">
-                </button>
-              </div>
+            <template id="template-card">
+              <li class="element__card">
+                <button type="button" class="element__button-delete"><img src="./images/trash-vector.svg" alt="корзина"></button>
+                <img class="element__image" src="#" alt="">
+                <div class="element__info">
+                  <h2 class="element__title"></h2>
+                  <button type="button" class="element__button-like"><img src="./images/element-vector.svg" alt="Лайк"></button>
+                </div>
               </li>
-            <li class="element__card"><img class="element__image" src="./images/kirill-pershin-1404681-unsplash-elbrus.jpg" alt="Гора Эльбрус">
-              <div class="element__info">
-                <h2 class="element__title">Гора Эльбрус</h2>
-                <button type="button" class="element__button"><img src="./images/element-vector.svg" alt="Лайк">
-                </button>
-              </div>
-              </li>
-            <li class="element__card"><img class="element__image" src="./images/kirill-pershin-1556355-unsplash-dombai.jpg" alt="Домбай">
-              <div class="element__info">
-                <h2 class="element__title">Домбай</h2>
-                <button type="button" class="element__button"><img src="./images/element-vector.svg" alt="Лайк">
-                </button>
-              </div>
-              </li>
-            <li class="element__card"><img class="element__image" src="./images/kirill-pershin-1088404-unsplash-karachaevsk.jpg" alt="Карачаевск">
-              <div class="element__info">
-                <h2 class="element__title">Карачаево-Черкессия</h2>
-                <button type="button" class="element__button"><img src="./images/element-vector.svg" alt="Лайк">
-                </button>
-              </div>
-              </li>
+            </template>
           </ul>
-      </section>  
+      </section>
     </main>
     <footer class="footer">
       <p>&copy; 2020 Mesto Russia</p>
@@ -84,6 +52,24 @@
           <input name="type-title" type="text" class="popup__field popup__field_type_title">
           <button type="submit" class="popup__submit">Сохранить</button>
         </form>
+      </div>
+    </div>
+    <div class="popup popup_type_edit">
+      <div class="popup__content popup__content_edit">
+        <button type="button" class="popup__close popup__close_add-button"></button>
+        <h3 class="popup__title popup__title_card">Новое место</h3>
+        <form name="popup_add-card" class="popup__form popup__form_card">
+          <input type="text" class="popup__field popup__field_place_name" placeholder="Название">
+          <input type="text" class="popup__field popup__field_type_place" placeholder="Ссылка на картинку">
+          <button type="submit" class="popup__submit popup__submit_card">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_image">
+      <div class="popup__content popup__content_image">
+        <button type="button" class="popup__close popup__close_image"></button>
+        <img class="popup__image">
+        <h4 class="popup__title popup__title_image_name"></h4>
       </div>
     </div>
   </div>

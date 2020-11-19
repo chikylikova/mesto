@@ -1,0 +1,16 @@
+.popup__content_image {
+    max-width: 75vw;
+    max-height: 75vh;
+    min-height: 540px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background: transparent;
+    object-fit: cover;
+}
+
+@media screen and (max-width:767px) {
+    .popup__content_image {
+        min-height: 299px;
+    }
+}

@@ -1,0 +1,9 @@
+@media screen and (max-width:767px) {
+    .popup__content_edit {
+        max-width: 240px;
+        /*width: calc(100% - 2*20px);*/
+        min-height: 258px;
+        padding: 30px 20px;
+        
+    }
+}

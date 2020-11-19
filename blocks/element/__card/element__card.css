@@ -1,6 +1,6 @@
 .element__card {
     border-radius: 10px;
     background: #fff;
-    margin: 0 auto;
     object-fit: cover;
+    position: relative;
 }
