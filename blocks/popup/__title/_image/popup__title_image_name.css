@@ -1,0 +1,17 @@
+.popup__title_image_name {
+    color: #fff;
+    align-self: flex-start;
+    margin: 0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+
+}
+
+@media screen and (max-width:767px) {
+    .popup__title_image_name {
+        width: 100%;
+    }
+}

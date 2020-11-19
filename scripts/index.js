@@ -46,8 +46,9 @@ const placeNameField = document.querySelector('.popup__field_place_name');
 
 
 const popupImage = document.querySelector('.popup_type_image');
-
-
+const popupImagePhoto = document.querySelector('.popup__image');
+const popupImageTitle = document.querySelector('.popup__title_image_name');
+const popupImageClose = document.querySelector('.popup__close_image');
 
 function closePopup(popup) { 
     popup.classList.remove('popup_opened'); 
@@ -74,6 +75,7 @@ editButton.addEventListener('click', () => showPopup(popup));
 closeButton.addEventListener('click', () => closePopup(popup)); 
 addButton.addEventListener('click', () => showPopup(popupAddCards));
 closeAddButton.addEventListener('click', () => closePopup(popupAddCards));
+popupImageClose.addEventListener('click', () => closePopup(popupImage));
 
 
 const addCards = document.querySelector('.element');
@@ -101,6 +103,8 @@ function createCard(card) {
     });
 
     cardElement.querySelector('.element__image').addEventListener('click', event => {
+        popupImagePhoto.src = event.target.src;
+        popupImageTitle.textContent = event.target.alt;
         showPopup(popupImage);
     })
 
