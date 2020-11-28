@@ -26,10 +26,30 @@ const popupImageClose = document.querySelector('.popup__close_image');
 
 function closePopup(popup) { 
     popup.classList.remove('popup_opened'); 
-} 
+    document.removeEventListener('keyup', closePopupEsc);
+}
+
 
 function showPopup(popup) {
     popup.classList.add('popup_opened'); 
+    document.addEventListener('keyup', closePopupEsc);
+    popupEditProfile.addEventListener('click', closePopupOverlay);
+    popupAddCards.addEventListener('click', closePopupOverlay);
+    popupImage.addEventListener('click', closePopupOverlay);
+}
+
+const closePopupEsc = (evt) => {
+    if (evt.key === 'Escape') {
+        const popupActive = document.querySelector('.popup_opened');
+        closePopup(popupActive);
+    }
+}
+
+const closePopupOverlay = (evt) => {
+    if (evt.target.classList.contains('popup')) {
+        const popupActive = document.querySelector('.popup_opened');
+        closePopup(popupActive);
+    }
 }
 
 function submitEditUserProfileForm(event) { 
@@ -53,7 +73,6 @@ closeEditUserProfileButton.addEventListener('click', () => closePopup(popupEditP
 addButton.addEventListener('click', () => showPopup(popupAddCards));
 closeAddButton.addEventListener('click', () => closePopup(popupAddCards));
 popupImageClose.addEventListener('click', () => closePopup(popupImage));
-
 
 const cardsList = document.querySelector('.element');
 const cardTemplate = document.querySelector('#template-card').content.querySelector('.element__card');
