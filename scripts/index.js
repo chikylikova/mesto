@@ -1,4 +1,3 @@
-const popup = document.querySelector('.popup');
 const popupEditProfile = document.querySelector('.popup_type_edit');
 const popupAddCards = document.querySelector('.popup_type_add-card');
 
@@ -33,9 +32,6 @@ function closePopup(popup) {
 function showPopup(popup) {
     popup.classList.add('popup_opened'); 
     document.addEventListener('keyup', closePopupEsc);
-    popupEditProfile.addEventListener('click', closePopupOverlay);
-    popupAddCards.addEventListener('click', closePopupOverlay);
-    popupImage.addEventListener('click', closePopupOverlay);
 }
 
 const closePopupEsc = (evt) => {
@@ -70,9 +66,17 @@ function showEditProfilePopup() {
 
 editButton.addEventListener('click', () => showEditProfilePopup()); 
 closeEditUserProfileButton.addEventListener('click', () => closePopup(popupEditProfile)); 
+
 addButton.addEventListener('click', () => showPopup(popupAddCards));
-closeAddButton.addEventListener('click', () => closePopup(popupAddCards));
+closeAddButton.addEventListener('click', () => {
+    closePopup(popupAddCards);
+});
+
 popupImageClose.addEventListener('click', () => closePopup(popupImage));
+popupEditProfile.addEventListener('click', closePopupOverlay);
+popupAddCards.addEventListener('click', closePopupOverlay);
+popupImage.addEventListener('click', closePopupOverlay);
+
 
 const cardsList = document.querySelector('.element');
 const cardTemplate = document.querySelector('#template-card').content.querySelector('.element__card');
@@ -105,10 +109,14 @@ function createCard(cardData) {
         showPopup(popupImage);
     })
 
-    cardsList.prepend(cardElement);
+    return cardElement;
 }
 
-initialCards.forEach(createCard);
+function renderCard(cardElement) {
+    cardsList.prepend(createCard(cardElement));
+}
+
+initialCards.forEach(renderCard);
 
 const addCardForm = document.querySelector('.popup__form_card');
 
@@ -117,10 +125,10 @@ addCardForm.addEventListener('submit', event => {
     const cardTitle = addCardForm.querySelector('.popup__field_place_name').value;
     const cardImage = addCardForm.querySelector('.popup__field_type_place').value;
 
-    createCard({
+    renderCard({
         name: cardTitle,
         link: cardImage
     });
     closePopup(popupAddCards);
-
+    addCardForm.reset();
 })

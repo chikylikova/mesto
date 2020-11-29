@@ -40,6 +40,8 @@ function setEventListeners(form, config) {
     });
 }
 
+
+
 function enablevalidation(config) {
     const forms = document.querySelectorAll(config.formSelector);
 
@@ -48,10 +50,10 @@ function enablevalidation(config) {
 
         form.addEventListener('submit', (evt) => {
             evt.preventDefault();
+            setButtonState(submitButton, false, config);
         });
         const submitButton = form.querySelector(config.submitButtonSelector);
         setButtonState(submitButton, form.checkValidity(), config);
-
     });
 }
 
