@@ -1,3 +1,7 @@
+import FormValidator from "./FormValidator.js";
+import { validationConfig } from "./constants.js";
+import { initialCards } from "./initial-cards.js";
+
 const popupEditProfile = document.querySelector('.popup_type_edit');
 const popupAddCards = document.querySelector('.popup_type_add-card');
 
@@ -11,6 +15,13 @@ const subTitle = document.querySelector('.profile__info-work');
 const elementTitle = document.querySelector('.element__title');
 
 const editUserForm = document.querySelector('.popup__form_edit-profile');
+const addUserForm = document.querySelector('.popup__form_card');
+
+const formEditValidation = new FormValidator(validationConfig, editUserForm);
+const formAddValidation = new FormValidator(validationConfig, addUserForm);
+
+formEditValidation.enableValidation();
+formAddValidation.enableValidation();
 
 const nameField = document.querySelector('.popup__field_type_name');
 const titleField = document.querySelector('.popup__field_type_title');
