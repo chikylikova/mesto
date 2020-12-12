@@ -1,6 +1,4 @@
 import FormValidator from "./FormValidator.js";
-import { validationConfig } from "./constants.js";
-import { initialCards } from "./initial-cards.js";
 
 const popupEditProfile = document.querySelector('.popup_type_edit');
 const popupAddCards = document.querySelector('.popup_type_add-card');
