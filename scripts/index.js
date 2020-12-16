@@ -1,7 +1,5 @@
 import FormValidator from "./FormValidator.js";
-
-//import Card from "./Card.js";
-
+import Card from "./Card.js";
 
 const popupEditProfile = document.querySelector('.popup_type_edit');
 const popupAddCards = document.querySelector('.popup_type_add-card');
@@ -89,7 +87,7 @@ popupEditProfile.addEventListener('click', closePopupOverlay);
 popupAddCards.addEventListener('click', closePopupOverlay);
 popupImage.addEventListener('click', closePopupOverlay);
 
-
+/*
 const cardsList = document.querySelector('.element');
 const cardTemplate = document.querySelector('#template-card').content.querySelector('.element__card');
 
@@ -128,7 +126,7 @@ function renderCard(cardElement) {
     cardsList.prepend(createCard(cardElement));
 }
 
-initialCards.forEach(renderCard);
+initialCards.forEach(renderCard); */
 
 const addCardForm = document.querySelector('.popup__form_card');
 

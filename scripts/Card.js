@@ -1,71 +1,53 @@
-/*class Card {
-    constructor(data, cardElement) {
+class Card {
+    constructor(data, cardSelector) {
         this._photo = data.photo;
         this._title = data.title;
-        this._cardElement = cardElement;
+        this._cardSelector = cardSelector;
     }
     _getTemplate() {
-        const cardTemplate = document.querySelector('#template-card').content.querySelector('.element__card');
+        const cardTemplate = document
+        .querySelector(this._cardSelector)
+        .content.querySelector('.element__card')
+        .cloneNode(true);
 
         return cardTemplate;
     }
     createCard() {
     this._element = this._getTemplate();
+
     this._element.querySelector('.element__image').src = this._photo;
     this._element.querySelector('.element__title').textContent = this._title;
 
+    this._setEventListeners();
+
     return this._element;
+    }
+    _setEventListeners() {
+        this._element.querySelector('.element__button-like').addEventListener('click', () => {
+            this._buttonLikeClick();
+        });
+        this._element.querySelector('.element__button-delete').addEventListener('click', () => {
+            this._cardDeleteClick();
+        });
+    }
+    _buttonLikeClick() {
+        this._element.querySelector('.element__button-like').classList.toggle('element__button-like_active');
+    }
+    _cardDeleteClick() {
+        const element = this._element.closest('.element__card');
+        if(element) {
+            element.remove();
+        }
     }
 }
 
 initialCards.forEach((item) => {
-	const card = new Card(item, cardTemplate);
-	const cardElement = card.createCard();
+	const card = new Card(item, '.template-card');
+	const cardTemplate = card.createCard();
 
-	this._cardsList.prepend(createCard(this._cardElement));
+	document.querySelector('.element').append(cardTemplate);
 });
 
 
 
-/*class Card {
-    constructor(cardsList, cardTemplate) {
-        this._cardsList = cardsList;
-        this._cardTemplate = cardTemplate;
-        this._cardElement = this._cardTemplate.cloneNode(true);
-    }
-    _createCard() {
-        //const cardElement = this._cardTemplate.cloneNode(true);
-        const photo = this._element.querySelector('.element__image');
-        const title = this._element.querySelector('.element__title');
-    
-        this._photo.src = this._element.link;
-        this._photo.alt = this._element.name;
-        this._title.textContent = this._element.name;
-    
-        this._cardElement.querySelector('.element__button-delete').addEventListener('click', event => {
-            const element = event.target.closest('.element__card');
-    
-            if(element) {
-                element.remove();
-            }
-        });
-    
-        this._cardElement.querySelector('.element__button-like').addEventListener('click', event => {
-            event.target.classList.toggle('element__button-like_active');
-        });
-    
-        this._photo.addEventListener('click', event => {
-            popupImagePhoto.src = event.target.src;
-            popupImageTitle.textContent = event.target.alt;
-            popupImagePhoto.alt = popupImageTitle.textContent;
-            showPopup(popupImage);
-        })
-    
-        return this._cardElement;
-    }
-    renderCard() {
-        this._cardsList.prepend(createCard());
-    }
-}*/
-
-//export default Card;
+export default Card;
