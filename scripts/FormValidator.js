@@ -4,7 +4,7 @@ class FormValidator {
         this._inputSelector = config.inputSelector;
         this._inputInvalidClass = config.inputInvalidClass;
         this._submitButtonSelector = config.submitButtonSelector;
-        this._submitInvalidClass = config.submitInvalidClass;
+        this._submitInvalidClass = config._submitInvalidClass;
     }
 
     _showError(input, errorMessage) {
@@ -38,25 +38,28 @@ class FormValidator {
     }
     
     _setEventListeners() {
-        const inputsList = this._element.querySelectorAll(this._inputSelector);
+        const inputsList = Array.from(this._element.querySelectorAll(this._inputSelector));
         const submitButton = this._element.querySelector(this._submitButtonSelector);
     
         inputsList.forEach((input) => {
             input.addEventListener('input', () => {
                 this._checkInputValidity(input);
-                this._setButtonState(this._submitButton, this._element.checkValidity());
+                this._setButtonState(submitButton, this._element.checkValidity());
             });
         });
-    }
+    };
 
     enableValidation() {
+        const submitButton = this._element.querySelector(this._submitButtonSelector);
+
         this._element.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this._setButtonState(this._submitButton, false);
+            this._setButtonState(submitButton, false);
         });
         this._setEventListeners();
+        this._setButtonState(submitButton, this._element.checkValidity());
     }
 }
 
 
-export default FormValidator;
+    export default FormValidator;

@@ -1,5 +1,8 @@
 import FormValidator from "./FormValidator.js";
 
+//import Card from "./Card.js";
+
+
 const popupEditProfile = document.querySelector('.popup_type_edit');
 const popupAddCards = document.querySelector('.popup_type_add-card');
 

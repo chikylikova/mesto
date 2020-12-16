@@ -4,6 +4,6 @@ const validationConfig = {
     submitButtonSelector: '.popup__submit',
     inputInvalidClass: 'popup__field_type_invalid',
     submitInvalidClass: 'popup__submit_invalid'
-}
+};
 
 
