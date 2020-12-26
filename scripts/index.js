@@ -1,5 +1,5 @@
 import FormValidator from "./FormValidator.js";
-import { initialCards, Card } from "./Card.js";
+import { initialCards, Card } from "././Card.js";
 
 const cardSection = document.querySelector('.element');
 const popupEditProfile = document.querySelector('.popup_type_edit');
@@ -29,8 +29,8 @@ export const popupImageTitle = document.querySelector('.popup__title_image_name'
 const popupImageClose = document.querySelector('.popup__close_image'); 
 
 const addCardForm = document.querySelector('.popup__form_card');
-const cardTitle = addCardForm.querySelector('.popup__field_place_name').value;
-const cardImage = addCardForm.querySelector('.popup__field_type_place').value;
+const cardTitle = addCardForm.querySelector('.popup__field_place_name');
+const cardImage = addCardForm.querySelector('.popup__field_type_place');
 
 const validationConfig = {
     formSelector: '.popup__form',
