@@ -4,7 +4,6 @@ class FormValidator {
         this._inputSelector = config.inputSelector;
         this._inputInvalidClass = config.inputInvalidClass;
         this._submitButtonSelector = config.submitButtonSelector;
-        this._submitInvalidClass = config._submitInvalidClass;
     }
 
     _showError(input, errorMessage) {
@@ -27,15 +26,15 @@ class FormValidator {
         }
     }
 
-    _setButtonState(button, isActive) {
+    _setButtonState(submitButtonSelector, isActive) {
         if (isActive) {
-            button.classList.remove(this._submitInvalidClass);
-            button.disabled = false;
+            submitButtonSelector.classList.remove('popup__submit_invalid');
+            submitButtonSelector.disabled = false;
         } else {
-            button.classList.add(this._submitInvalidClass);
-            button.disabled = true;
+            submitButtonSelector.classList.add('popup__submit_invalid');
+            submitButtonSelector.disabled = true;
         }
-    }
+    } 
     
     _setEventListeners() {
         const inputsList = Array.from(this._element.querySelectorAll(this._inputSelector));
