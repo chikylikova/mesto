@@ -12,16 +12,12 @@ const closeAddButton = document.querySelector('.popup__close_add-button');
 
 const title = document.querySelector('.profile__info-name');
 const subTitle = document.querySelector('.profile__info-work');
-const elementTitle = document.querySelector('.element__title');
 
 const editUserForm = document.querySelector('.popup__form_edit-profile');
 const addUserForm = document.querySelector('.popup__form_card');
 
 const nameField = document.querySelector('.popup__field_type_name');
 const titleField = document.querySelector('.popup__field_type_title');
-const placeField = document.querySelector('.popup__field_type_place');
-const placeNameField = document.querySelector('.popup__field_place_name');
-
 
 export const popupImage = document.querySelector('.popup_type_image');
 export const popupImagePhoto = document.querySelector('.popup__image');
@@ -58,12 +54,14 @@ function renderCard(item) {
 function closePopup(popup) { 
     popup.classList.remove('popup_opened'); 
     document.removeEventListener('keyup', closePopupEsc);
+    document.removeEventListener('mousedown', closePopupOverlay);
 }
 
 
 export function showPopup(popup) {
     popup.classList.add('popup_opened'); 
     document.addEventListener('keyup', closePopupEsc);
+    document.addEventListener('mousedown', closePopupOverlay);
 }
 
 const closePopupEsc = (evt) => {
@@ -115,9 +113,7 @@ closeAddButton.addEventListener('click', () => {
 });
 
 popupImageClose.addEventListener('click', () => closePopup(popupImage));
-popupEditProfile.addEventListener('click', closePopupOverlay);
-popupAddCards.addEventListener('click', closePopupOverlay);
-popupImage.addEventListener('click', closePopupOverlay);
+
 
 
 

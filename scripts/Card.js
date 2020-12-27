@@ -53,7 +53,6 @@ class Card {
 
     const image = this._element.querySelector('.element__image');
 
-    this._element.querySelector('.element__image').src = this._image;
     this._element.querySelector('.element__title').textContent = this._title;
 
     image.src = this._image;
@@ -79,16 +78,13 @@ class Card {
     }
 
     _cardDeleteClick() {
-        const element = this._element.closest('.element__card');
-        if(element) {
-            element.remove();
-        }
+        this._element.closest('.element__card').remove();
     }
 
     _showImagePopup() {
         popupImagePhoto.src = this._image;
         popupImageTitle.textContent = this._title;
-        popupImagePhoto.alt = this._image;
+        popupImagePhoto.alt = this._title;
         showPopup(popupImage);
         } 
     }
