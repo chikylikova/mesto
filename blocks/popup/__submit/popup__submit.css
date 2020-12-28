@@ -9,6 +9,7 @@
     line-height: 22px;
     text-align: center;
     border: none;
+    cursor: pointer;
 }
 
 .popup__submit:hover {
